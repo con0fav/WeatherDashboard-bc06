@@ -15,30 +15,34 @@
 <body>
 
     <!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Thanks for tuning to The Weather Dashboard</span>
+<nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1 text-center">Thanks for tuning to The Weather Dashboard</span>
   </nav>
     
   <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-4 bg-light">
             <!-- search and city list. put in and example city for filler  -->
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search this blog">
+                <input type="text" class="form-control" placeholder="City name">
                 <div class="input-group-append">
                   <button class="btn btn-secondary" type="button">
                     <i class="fa fa-search"></i>
                   </button>
+                  <form id="history"></form>
                 </div>
               </div>
         </div>
-        <div class="col-sm-8">
+        <div class="col-8">
             <!-- card with current city info -->
+            <div class="col-12 border border-dark m-3 rounded">
+
+            </div>
         </div>
     </div>
+    <!-- 5 blue cards with 5 day forecast. with icons indicating weather. ex if sunny weather then display sunny icon -->
 </div>
 
-<!-- 5 blue cards with 5 day forecast. with icons indicating weather. ex if sunny weather then display sunny icon -->
 
 
 
