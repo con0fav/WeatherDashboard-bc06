@@ -31,6 +31,7 @@ var fiveDay = document.querySelector();
 
 var APIKey = "";
 //API KEY GOES ABOVE
+//f0b02fab26617617b2432ba827c42fc0
 
 var openwURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
