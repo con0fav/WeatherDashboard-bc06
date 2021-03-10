@@ -12,9 +12,9 @@
 </head>
 <body>
 
-        <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark">
             <span class="navbar-brand mb-0 h1 w-100 text-center">Thanks for tuning to The Weather Dashboard</span>
-        </nav>
+    </nav>
     
   <div class="container">
     <div class="row">
@@ -32,25 +32,29 @@
                   </button>
                 </div>
                 
-                <button class="btn btn-secondary" type="button" id="clear">Clear</button>
+                <button class="btn btn-secondary" type="button" id="clearButton">Clear</button>
 
                 <ul class="list-group">
-                  <li class="list-group-item">Seattle</li>
+                  <!-- space for city search history -->>
                 </ul>
               </div>
         </div>
         
         <div class="col-8">
             <!-- card with current city info -->
-            <div class="col-12 border border-dark m-3 rounded" >
+            <div class="col-12">
+                <h2>Forecast</h2>
+            </div>
 
+            <div class="col-12 border border-dark m-3 rounded" id="forecast">
+              <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                  <p>Temperature:<span class="current" id="temperature"></span></p>
+                  <p>Humidity:<span class="current" id="humidity"></span></p> 
+                  <p>Wind Speed:<span class="current" id="wind"></span></p>
+                  <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv"></span></p>
             </div>
             
             <div class="row">
-                
-                <div class="col-12">
-                    <h2>Forecast</h2>
-                </div>
                 
                 <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                     <div class="card-header">

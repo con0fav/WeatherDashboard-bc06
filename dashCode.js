@@ -2,12 +2,12 @@ var city="";
 
 var searchCity = $("#searchCity");
 var searchButton = $("#searchButton");
-var clearButton = $("#clear");
+var clearButton = $("#clearButton");
 var searchedCity = $("#searchedCity");
 var cityTemp = $("#temperature");
-var cityHumidty= $("#humidity");
-var windSpeed=$("#wind-speed");
-var uvindex= $("#uv-index");
+var cityHumidty = $("#humidity");
+var cityWind = $("#wind");
+var cityUV = $("#uv");
 
 var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 
@@ -20,7 +20,7 @@ function searchBar() {
 
 //then get val from search input
 
-function makeRequest (search) {
+function getWeather (search) {
 
     //build url for first API req
     //make req to URL with jquery ajax call
