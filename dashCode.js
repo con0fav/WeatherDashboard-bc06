@@ -11,7 +11,6 @@ var cityUV = $("#uv");
 
 var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 
-var openwURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
 //when search is clicked
 function searchBar() {
@@ -21,8 +20,9 @@ function searchBar() {
 //then get val from search input
 
 function getWeather (search) {
-
+    
     //build url for first API req
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
     //make req to URL with jquery ajax call
 
     $.ajax({
@@ -36,16 +36,4 @@ function getWeather (search) {
     
     //start render data 
     //get lat and long out of response object
-
-    //make oneCall request and pass in lat, long
-    //
-}
-
-//openweather onecall request
-function oneCall(lat, lng) {
-    
-    $.ajax(queryURL).then(function(res){
-        //finish rendering data
-    })
-
 }
