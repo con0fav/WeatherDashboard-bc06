@@ -3,7 +3,7 @@ var city="";
 var searchCity = $("#searchCity");
 var searchButton = $("#searchButton");
 var clearButton = $("#clearButton");
-var searchedCity = $("#searchedCity");
+var currentCity = $("#currentCity");
 var cityTemp = $("#temperature");
 var cityHumidty = $("#humidity");
 var cityWind = $("#wind");
@@ -13,8 +13,13 @@ var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 
 
 //when search is clicked
-function searchBar() {
-    makeRequest(search);
+function searchBar(event) {
+    event.preventDefault();
+    if (searchCity.val().trim()!=="") {
+        city=searchCity.val().trim();
+        getWeather(city);
+    }
+    // makeRequest(search);
 }
 
 //then get val from search input
@@ -31,6 +36,14 @@ function getWeather (search) {
     })
     .then(function(res) {
         console.log(res);
+
+        var icon = res.weather[0].icon;
+        var iconCall = "https://openweathermap.org/img/wn/"+ icon +"@2x.png";
+
+        var date = new Date(res.dt*1000).toLocaleDateString();
+
+        $(currentCity).html(res.name + "("+date+")" + "<img src="+iconCall+">")
+
         console.log(queryURL);
     });
     
