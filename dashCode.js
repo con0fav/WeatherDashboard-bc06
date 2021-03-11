@@ -8,9 +8,18 @@ var cityTemp = $("#temperature");
 var cityHumidty = $("#humidity");
 var cityWind = $("#wind");
 var cityUV = $("#uv");
+var cityArray = [];
 
 var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 
+function find(c){
+    for (var i=0; i<cityArray.length; i++){
+        if(c.toUpperCase()===cityArray[i]){
+            return -1;
+        }
+    }
+    return 1;
+}
 
 //when search is clicked
 function searchBar(event) {
@@ -24,7 +33,7 @@ function searchBar(event) {
 
 //then get val from search input
 
-function getWeather (search) {
+function getWeather(city) {
     
     //build url for first API req
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
@@ -44,9 +53,14 @@ function getWeather (search) {
 
         $(currentCity).html(res.name + "("+date+")" + "<img src="+iconCall+">")
 
-        console.log(queryURL);
+        var temp = res.main.temp;
+        $(cityTemp).html(temp+"&#8457"));
+
+        $(cityHumidty).html(res.main.humidity+"%");
+
     });
     
+    console.log(queryURL);
     //start render data 
     //get lat and long out of response object
 }
