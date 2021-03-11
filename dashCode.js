@@ -21,28 +21,7 @@ var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 //     }
 // }
 
-// function getWeather(city) {
-    
-//     //build url for first API req
-//     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
-//     //make req to URL with jquery ajax call
-
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     })
-//     .then(function(res) {
-
-//     });
-    
-//     //start render data 
-//     //get lat and long out of response object
-// }
-
-// $("searchButton").on("click", getWeather);
-
-
-$("#searchButton").on("click", function() {
+function getWeather(city) {
     
     //build url for first API req
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
@@ -53,23 +32,16 @@ $("#searchButton").on("click", function() {
         method: "GET"
     })
     .then(function(res) {
-        console.log(queryURL);
-
-        console.log(res);
-
-        var results = res.data;
-
-        //elements for:
-        //city name
-        //date
-        //temp
-        //humidity
-        //wind speed
-        //uv index
+        console.log(res)
 
     });
+    
+    //start render data 
+    //get lat and long out of response object
+}
 
-})
+// $("searchButton").on("click", getWeather);
+
 
 function clear() {
     $("#searchCity").empty();
