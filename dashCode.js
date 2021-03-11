@@ -54,13 +54,17 @@ function getWeather(city) {
         $(currentCity).html(res.name + "("+date+")" + "<img src="+iconCall+">")
 
         var temp = res.main.temp;
-        $(cityTemp).html(temp+"&#8457"));
+        $(cityTemp).html(temp+"&#8457");
 
         $(cityHumidty).html(res.main.humidity+"%");
 
+        var ws = res.wind.speed;
+        $(cityWind).html(ws);
+
     });
     
-    console.log(queryURL);
     //start render data 
     //get lat and long out of response object
 }
+
+$("searchButton").on("click", getWeather);
