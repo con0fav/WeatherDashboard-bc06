@@ -3,7 +3,7 @@ var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
 //when search is clicked
-function searchBar() {
+function searchCity() {
     makeRequest(search);
 }
 

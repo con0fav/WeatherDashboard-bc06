@@ -22,6 +22,11 @@ function getWeather(city) {
     })
     .then(function(res) {
         console.log(res)
+        console.log(cityTemp);
+
+        cityTemp.text(res.main.temp);
+        
+
     });
 }
 
@@ -30,7 +35,7 @@ function getWeather(city) {
 $("#searchButton").on("click", function(event) {
     event.preventDefault();
 
-    var cityResult = $("searchCity").val().trim();
+    var cityResult = searchCity.val().trim();
 
     getWeather(cityResult);
 })
