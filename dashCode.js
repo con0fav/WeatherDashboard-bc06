@@ -12,20 +12,9 @@ var cityArray = [];
 
 var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 
-// //when search is clicked
-// function searchBar(event) {
-//     event.preventDefault();
-//     if (searchCity.val().trim()!=="") {
-//         city=searchCity.val().trim();
-//         getWeather(city);
-//     }
-// }
-
 function getWeather(city) {
     
-    //build url for first API req
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
-    //make req to URL with jquery ajax call
 
     $.ajax({
         url: queryURL,
@@ -33,14 +22,18 @@ function getWeather(city) {
     })
     .then(function(res) {
         console.log(res)
-
     });
-    
-    //start render data 
-    //get lat and long out of response object
 }
 
-// $("searchButton").on("click", getWeather);
+
+
+$("#searchButton").on("click", function(event) {
+    event.preventDefault();
+
+    var cityResult = $("searchCity").val().trim();
+
+    getWeather(cityResult);
+})
 
 
 function clear() {
