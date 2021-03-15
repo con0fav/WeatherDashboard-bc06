@@ -27,31 +27,36 @@ function getWeather(city) {
         cityHumidty.text(res.main.humidity);
         cityWind.text(res.wind.speed);
 
-        lat = res.coord.lat;
-        lon = res.coord.lon;
+        // lat = res.coord.lat;
+        // lon = res.coord.lon;
     });
 }
 
+// function oneCall(city) {
 
-function oneCall(city) {
+//     var oneCallQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid="+ APIKey;
 
+//     $.ajax({
+//         url: oneCallQueryURL,
+//         method: "GET"
+//     })
+//     .then(function(res) {
+//         console.log(res)
+//     });
+// }
+
+function fiveDay(city) {
+
+    var fiveDayQueryURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
     
-    var oneCallQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid="+ APIKey;
-
     $.ajax({
-        url: oneCallQueryURL,
+        url: fiveDayQueryURL,
         method: "GET"
     })
     .then(function(res) {
         console.log(res)
-
-        
     });
-
-    
 }
-
-
 
 $("#searchButton").on("click", function(event) {
     event.preventDefault();
@@ -59,7 +64,9 @@ $("#searchButton").on("click", function(event) {
     var cityResult = searchCity.val().trim();
 
     getWeather(cityResult);
-    oneCall(cityResult);
+    // oneCall(cityResult);
+    fiveDay(cityResult);
+
 })
 
 
