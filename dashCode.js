@@ -12,29 +12,29 @@ var cityArray = [];
 
 var APIKey = "f0b02fab26617617b2432ba827c42fc0";
 
-function getWeather(city) {
+// function getWeather(city) {
     
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
+//     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-    .then(function(res) {
-        console.log(res)
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//     })
+//     .then(function(res) {
+//         console.log(res)
 
-        cityTemp.text(res.main.temp);
-        cityHumidty.text(res.main.humidity);
-        cityWind.text(res.wind.speed);
+//         cityTemp.text(res.main.temp);
+//         cityHumidty.text(res.main.humidity);
+//         cityWind.text(res.wind.speed);
 
-        // lat = res.coord.lat;
-        // lon = res.coord.lon;
-    });
-}
+//         // lat = res.coord.lat;
+//         // lon = res.coord.lon;
+//     });
+// }
 
 // function oneCall(city) {
 
-//     var oneCallQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid="+ APIKey;
+//     var oneCallQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&appid="+ APIKey;
 
 //     $.ajax({
 //         url: oneCallQueryURL,
@@ -47,7 +47,7 @@ function getWeather(city) {
 
 function fiveDay(city) {
 
-    var fiveDayQueryURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+    var fiveDayQueryURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
     
     $.ajax({
         url: fiveDayQueryURL,
