@@ -22,14 +22,33 @@ function getWeather(city) {
     })
     .then(function(res) {
         console.log(res)
-        console.log(cityTemp);
 
         cityTemp.text(res.main.temp);
         cityHumidty.text(res.main.humidity);
         cityWind.text(res.wind.speed);
-        
 
+        lat = res.coord.lat;
+        lon = res.coord.lon;
     });
+}
+
+
+function oneCall(city) {
+
+    
+    var oneCallQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid="+ APIKey;
+
+    $.ajax({
+        url: oneCallQueryURL,
+        method: "GET"
+    })
+    .then(function(res) {
+        console.log(res)
+
+        
+    });
+
+    
 }
 
 
@@ -40,6 +59,7 @@ $("#searchButton").on("click", function(event) {
     var cityResult = searchCity.val().trim();
 
     getWeather(cityResult);
+    oneCall(cityResult);
 })
 
 
