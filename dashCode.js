@@ -25,6 +25,8 @@ function getWeather(city) {
         console.log(cityTemp);
 
         cityTemp.text(res.main.temp);
+        cityHumidty.text(res.main.humidity);
+        cityWind.text(res.wind.speed);
         
 
     });
