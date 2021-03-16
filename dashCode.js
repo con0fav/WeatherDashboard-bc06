@@ -84,6 +84,8 @@ $("#searchButton").on("click", function (event) {
     var cityResult = searchCity.val().trim();
 
     getWeather(cityResult);
+
+    fiveDayCards.empty();
 });
 
 // function clear() {
