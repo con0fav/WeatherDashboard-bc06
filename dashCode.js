@@ -32,8 +32,6 @@ function getWeather(city) {
             lat = res.coord.lat;
             lon = res.coord.lon;
 
-            //using onecall api for uv index
-
             var oneCallQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
 
             $.ajax({
@@ -45,9 +43,6 @@ function getWeather(city) {
 
                     cityUV.text(oneCallRes.current.uvi);
 
-                    //render cards here
-
-
                     for (let i = 0; i < 5; i++) {
                         var dailyForecast = oneCallRes.daily[i];
 
@@ -57,7 +52,7 @@ function getWeather(city) {
 
                         var dateObject = new Date(milliseconds)
 
-                        var realDate = dateObject.toLocaleString("en-US", {month: "long", day: "numeric"})
+                        var realDate = dateObject.toLocaleString("en-US", { month: "long", day: "numeric" })
 
                         var cardDiv = $('<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">');
 
@@ -89,8 +84,7 @@ $("#searchButton").on("click", function (event) {
     var cityResult = searchCity.val().trim();
 
     getWeather(cityResult);
-})
-
+});
 
 // function clear() {
 //     $("#searchCity").empty();
