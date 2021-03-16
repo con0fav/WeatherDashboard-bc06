@@ -1,113 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <!-- Bootstrap CSS CDN  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <!-- Bootstrap CSS CDN  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <!-- Font Awesome CSS Icons (For cool glyphicons) -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1 w-100 text-center">Thanks for tuning to The Weather Dashboard</span>
-    </nav>
-    
+  <nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1 w-100 text-center">Thanks for tuning to The Weather Dashboard</span>
+  </nav>
+
   <div class="container">
     <div class="row">
-        
-        <div class="col-4 bg-light">
-          
-          <h3 class="pt-1">Search cities</h3>
-            
-          <div class="input-group">
-                <input type="text" class="form-control" id="searchCity" placeholder="City name">
-                
-                <div class="input-group-append">
-                  <button class="btn btn-primary" type="button" id="searchButton">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </div>
-                
-                <button class="btn btn-secondary" type="button" id="clearButton">Clear</button>
 
-                <ul class="list-group">
-                  <!-- space for city search history -->>
-                </ul>
-              </div>
-        </div>
-        
-        <div class="col-8">
-            <!-- card with current city info -->
-            <div class="col-12">
-                <h2>Forecast</h2>
-                <h3 id="date"></h3>
-            </div>
+      <div class="col-4 bg-light">
 
-            <div class="col-12 border border-dark m-3 rounded" id="forecast">
-              <h3 class="city-name mb-1 mt-2 bolder" id="currentCity"></h3>
-                  <p>Temperature:<span class="current" id="temperature"></span></p>
-                  <p>Humidity:<span class="current" id="humidity"></span></p> 
-                  <p>Wind Speed:<span class="current" id="wind"></span></p>
-                  <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv"></span></p>
-            </div>
-            
-            <div class="row">
-                
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-body">
-                        <p class="card-text" id="date1"></p>
-                        <p class="card-text" id="icon1"></p>
-                        <p class="card-text">Temperature: <span id="temp1"></span></p>
-                        <p class="card-text">Humidity: <span id="hum1"></span></p>
-                      </div>
-                </div>
+        <h3 class="pt-1">Search cities</h3>
 
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-body">
-                        <p class="card-text" id="date2"></p>
-                        <p class="card-text" id="icon2"></p>
-                        <p class="card-text">Temperature: <span id="temp2"></span></p>
-                        <p class="card-text">Humidity: <span id="hum2"></span></p>
-                      </div>
-                </div>
+        <div class="input-group">
+          <input type="text" class="form-control" id="searchCity" placeholder="City name">
 
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-body">
-                        <p class="card-text" id="date3"></p>
-                        <p class="card-text" id="icon3"></p>
-                        <p class="card-text">Temperature: <span id="temp3"></span></p>
-                        <p class="card-text">Humidity: <span id="hum3"></span></p>
-                      </div>
-                </div>
-
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                      <div class="card-body">
-                        <p class="card-text" id="date4"></p>
-                        <p class="card-text" id="icon4"></p>
-                        <p class="card-text">Temperature: <span id="temp4"></span></p>
-                        <p class="card-text">Humidity: <span id="hum4"></span></p>
-                      </div>
-                </div>
-
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                    <div class="card-body">
-                      <p class="card-text" id="date5"></p>
-                      <p class="card-text" id="icon5"></p>
-                      <p class="card-text">Temperature: <span id="temp5"></span></p>
-                      <p class="card-text">Humidity: <span id="hum5"></span></p>
-                    </div>
-              </div>
-           
-              </div>
-       
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
           </div>
-    
+
+          <button class="btn btn-secondary" type="button" id="clearButton">Clear</button>
+
+          <ul class="list-group">
+            <!-- space for city search history -->>
+          </ul>
+        </div>
       </div>
-</div>
+
+      <div class="col-8">
+        <!-- card with current city info -->
+        <div class="col-12">
+          <h2>Forecast</h2>
+          <h3 id="date"></h3>
+        </div>
+
+        <div class="col-12 border border-dark m-3 rounded" id="forecast">
+          <h3 class="city-name mb-1 mt-2 bolder" id="currentCity"></h3>
+          <p>Temperature:<span class="current" id="temperature"></span></p>
+          <p>Humidity:<span class="current" id="humidity"></span></p>
+          <p>Wind Speed:<span class="current" id="wind"></span></p>
+          <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv"></span></p>
+        </div>
+
+        <div class="row" id="dailyForecast">
+
+          
+<!-- 
+          <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <p class="card-text" id="date1"></p>
+              <p class="card-text" id="icon1"></p>
+              <p class="card-text">Temperature: <span id="temp1"></span></p>
+              <p class="card-text">Humidity: <span id="hum1"></span></p>
+            </div>
+          </div>
+
+          <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <p class="card-text" id="date2"></p>
+              <p class="card-text" id="icon2"></p>
+              <p class="card-text">Temperature: <span id="temp2"></span></p>
+              <p class="card-text">Humidity: <span id="hum2"></span></p>
+            </div>
+          </div>
+
+          <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <p class="card-text" id="date3"></p>
+              <p class="card-text" id="icon3"></p>
+              <p class="card-text">Temperature: <span id="temp3"></span></p>
+              <p class="card-text">Humidity: <span id="hum3"></span></p>
+            </div>
+          </div>
+
+          <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <p class="card-text" id="date4"></p>
+              <p class="card-text" id="icon4"></p>
+              <p class="card-text">Temperature: <span id="temp4"></span></p>
+              <p class="card-text">Humidity: <span id="hum4"></span></p>
+            </div>
+          </div>
+
+          <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+              <p class="card-text" id="date5"></p>
+              <p class="card-text" id="icon5"></p>
+              <p class="card-text">Temperature: <span id="temp5"></span></p>
+              <p class="card-text">Humidity: <span id="hum5"></span></p>
+            </div> -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
   <!-- jQuery JS -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -116,4 +121,5 @@
   <script src="dashCode.js"></script>
 
 </body>
+
 </html>
