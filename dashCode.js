@@ -56,7 +56,7 @@ function getWeather(city) {
 
                 var cardDate = $('<p class="card-text">');
 
-                var cardIcon = $('<img>').attr("src", "" + dailyForecast.weather[0].icon + ".png");
+                var cardIcon = $('<img>').attr("src", "http://openweathermap.org/img/w/" + dailyForecast.weather[0].icon + ".png");
 
                 var cardTemp = $('<p class="card-text">').text("Temperature:" + dailyForecast.temp.day);
 
@@ -70,31 +70,9 @@ function getWeather(city) {
 
         })
     
-    
-        // var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
-        
-        // $.ajax({
-        //     url: fiveDayQueryURL,
-        //     method: "GET"
-        // })
-        // .then(function(fiveDayRes) {
-        //     console.log(fiveDayRes)
-
-
-
-        // });
-    
     });
 
 }
-
-// function oneCall(city) {
-
-// }
-
-// function fiveDay(city) {
-
-// }
 
 $("#searchButton").on("click", function(event) {
     event.preventDefault();
@@ -102,9 +80,6 @@ $("#searchButton").on("click", function(event) {
     var cityResult = searchCity.val().trim();
 
     getWeather(cityResult);
-    // oneCall(cityResult);
-    // fiveDay(cityResult);
-
 })
 
 
