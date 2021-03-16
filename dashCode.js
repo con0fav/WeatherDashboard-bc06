@@ -1,6 +1,7 @@
 var city = "";
 
 var searchCity = $("#searchCity");
+var searchList = $("#searchList");
 var searchButton = $("#searchButton");
 var clearButton = $("#clearButton");
 var currentCity = $("#currentCity");
@@ -23,6 +24,17 @@ function getWeather(city) {
         method: "GET"
     })
         .then(function (res) {
+
+            let previousCity = JSON.parse(localStorage.getItem("cities"));
+            if (previousCity) {
+                previousCity.push(res.name);
+                localStorage.setItem("cities", JSON.stringify(previousCity));
+            } else {
+                cityArray.push(res.name)
+                localStorage.setItem("cities", JSON.stringify(searchArr));
+            }
+
+
             console.log(res);
 
             currentCity.text(res.name);
@@ -79,9 +91,9 @@ function getWeather(city) {
 
 }
 
-// function renderPreviousList() {
-//     var 
-// }
+function renderPreviousList() {
+    var searchListMem = JSON.parse(localStorage.getItem("cities"))
+}
 
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
