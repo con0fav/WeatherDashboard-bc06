@@ -23,8 +23,9 @@ function getWeather(city) {
         method: "GET"
     })
         .then(function (res) {
-            console.log(res)
+            console.log(res);
 
+            currentCity.text(res.name);
             cityTemp.text(res.main.temp);
             cityHumidty.text(res.main.humidity);
             cityWind.text(res.wind.speed);
@@ -78,6 +79,10 @@ function getWeather(city) {
 
 }
 
+// function renderPreviousList() {
+//     var 
+// }
+
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
 
@@ -86,6 +91,8 @@ $("#searchButton").on("click", function (event) {
     getWeather(cityResult);
 
     fiveDayCards.empty();
+
+    renderPreviousList();
 });
 
 // function clear() {
