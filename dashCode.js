@@ -40,27 +40,46 @@ function getWeather(city) {
             method: "GET"
         })
         .then(function(oneCallRes) {
-            console.log(oneCallRes)
+            console.log(oneCallRes);
 
             cityUV.text(oneCallRes.current.uvi);
-        })
-    
-    
-        var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
-        
-        $.ajax({
-            url: fiveDayQueryURL,
-            method: "GET"
-        })
-        .then(function(fiveDayRes) {
-            console.log(fiveDayRes)
 
-            
-        });
+            //render cards here
+
+            for (let i = 0; i < 4; i++) {
+                var dailyForecast = oneCallRes.daily[i];
+
+                var cardDiv = $('<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">');
+                
+                var cardBody = $('<div class="card-body">');
+
+                var cardDate = $('<p class="card-text">');
+
+                var cardIcon = $('<img>').attr("src", "" + dailyForecast.weather[0].icon + ".png");
+
+                var cardTemp = $('<p class="card-text">').text(dailyForecast.temp.day);
+
+                var cardHum = $('<p class="card-text">').text(dailyForecast.humidity);
+
+            }            
+
+        })
     
+    
+        // var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIKey;
+        
+        // $.ajax({
+        //     url: fiveDayQueryURL,
+        //     method: "GET"
+        // })
+        // .then(function(fiveDayRes) {
+        //     console.log(fiveDayRes)
+
+
+
+        // });
     
     });
-
 
 }
 
@@ -68,9 +87,9 @@ function getWeather(city) {
 
 // }
 
-function fiveDay(city) {
+// function fiveDay(city) {
 
-}
+// }
 
 $("#searchButton").on("click", function(event) {
     event.preventDefault();
@@ -79,7 +98,7 @@ $("#searchButton").on("click", function(event) {
 
     getWeather(cityResult);
     // oneCall(cityResult);
-    fiveDay(cityResult);
+    // fiveDay(cityResult);
 
 })
 
