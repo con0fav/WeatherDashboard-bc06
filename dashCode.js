@@ -19,19 +19,21 @@ function getWeather(city) {
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey;
 
+    $("<button>").text(city).prepend(".list-group-item");
+
     $.ajax({
         url: queryURL,
         method: "GET"
     })
         .then(function (res) {
 
-            let previousCity = JSON.parse(localStorage.getItem("cities"));
+            var previousCity = JSON.parse(localStorage.getItem("cities"));
             if (previousCity) {
                 previousCity.push(res.name);
                 localStorage.setItem("cities", JSON.stringify(previousCity));
             } else {
                 cityArray.push(res.name)
-                localStorage.setItem("cities", JSON.stringify(searchArr));
+                localStorage.setItem("cities", JSON.stringify(cityArray));
             }
 
 
@@ -93,6 +95,21 @@ function getWeather(city) {
 
 function renderPreviousList() {
     var searchListMem = JSON.parse(localStorage.getItem("cities"))
+
+    searchList.empty();
+
+    if (searchListMem) {
+        for (i = 0; i < searchListMem.length; i++) {
+            var addBtn = $("<button>").addClass("btn btn-secondary city-btn").attr('id', 'cityname' + (i + 1)).text(searchListMem[i]);
+
+            var listItem = $("<li>").attr('class', 'list-group-item');
+
+            listItem.append(addBtn);
+
+            searchList.append(listItem);
+            
+        }
+    }
 }
 
 $("#searchButton").on("click", function (event) {
